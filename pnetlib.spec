@@ -1,12 +1,14 @@
-Name:		pnetlib
 Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
+Name:		pnetlib
 Version:	0.5.4
 Release:	1
-Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
 License:	GPL
 Vendor:		DotGNU
 Group:		Libraries
+Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	pnet-interpreter
 BuildRequires:	pnet-compiler >= 0.5.4
 BuildRequires:	pnet-tools
@@ -49,14 +51,16 @@ Ró¿ne narzêdzia bilioteki Portable .NET z projektu DotGNU.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} DESTDIR=${RPM_BUILD_ROOT} install
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
 
 %files
 %defattr(644,root,root,755)
-%{_libdir}/cscc/lib/*
+%{_libdir}/cscc/lib
 
 %files tools
 %defattr(644,root,root,755)
