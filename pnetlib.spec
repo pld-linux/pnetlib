@@ -51,7 +51,7 @@ Biblioteki Klass CLI (".NET"). Jest zaprojektowana w celu u¿ycia w
 programach napisanych dla CLI i uruchamianych lokalnie przez
 pnet-interpreter.
 
-Jest to metapakiet zawieraj±cy wszystko za³±czone w dystrybucji
+Jest to metapakiet zawieraj±cy wszystko co znajduje siê w dystrybucji
 pnetlib.
 
 %package base
@@ -75,9 +75,10 @@ Biblioteki Klass CLI (".NET"). Jest zaprojektowana w celu u¿ycia w
 programach napisanych dla CLI i uruchamianych lokalnie przez
 pnet-interpreter.
 
-W tym pakiecie znajduj± siê podstawowe pliki dla pnetlib. S± potrzebne
-¿eby robiæ cokolwiek z pnetlib. Dla programów wykorzystuj±cych tylko
-standardowe biblioteki jest to wszystko czego potrzeba.
+W tym pakiecie znajduj± siê podstawowe pliki dla pnetlib. S± one
+potrzebne, ¿eby robiæ cokolwiek z pnetlib. Dla programów
+wykorzystuj±cych tylko standardowe biblioteki jest to wszystko czego
+potrzeba.
 
 %package xsharp
 Summary:	XFree86 bindings for DotGNU Portable .NET
@@ -113,7 +114,7 @@ Requires:	%{name}-base = %{version}
 Library to support compression for Portable .NET .
 
 %description ziplib -l pl
-Biblioteka do obslugi kompresji dla Portable .NET .
+Biblioteka do obs³ugi kompresji dla Portable .NET .
 
 %package openssl
 Summary:	OpenSSL support for DotGNU Portable .NET
@@ -136,9 +137,8 @@ Ten pakiet zawiera wersjê silnika SSL wymaganego przez pnetlib
 wymagaj±c± biblioteki OpenSSL.
 
 Zaleca siê nie korzystaæ z tego w oprogramowaniu GPL, poniewa¿ OpenSSL
-nie jest licencjonowany pod licencj± zgodn± z GPL. Zamiast tego zaleca
-siê dodaæ obs³ugê innego silnika SSL do pnetlib, preferowany jest GNU
-TLS.
+nie ma licencji zgodnej z GPL. Zamiast tego zaleca siê dodaæ obs³ugê
+innego silnika SSL do pnetlib. Preferowany jest GNU TLS.
 
 %package winforms
 Summary:	Windows.Forms for DotGNU Portable .NET
@@ -225,8 +225,8 @@ from the command line.
 
 %description -n pnet-jscript -l pl
 To jest implementacja JScriptu dla Portable .NET . Zosta³a tak
-zaprojektowana, aby byæ kompatybilna z "Microsoft.JScript" z .NET
-Framework SDK.
+zaprojektowana, aby by³a zgodna z "Microsoft.JScript" z .NET Framework
+SDK.
 
 Pakiet zawiera bibliotekê JScript, opis jak osadzaæ j± we w³asnych
 aplikacjach oraz narzêdzie jsrun, przy pomocy którego mo¿na uruchamiaæ
@@ -279,9 +279,9 @@ assemblies within the .NET Framework SDK. We do not recommend using
 these assemblies in portable code, or in fact at all.
 
 %description compat -l pl
-Te zbiory istniej± dla zapewnienia kompatybilno¶ci z pomniejszymi
-zbiorami Microsoftu z .NET Framework SDK. Ich u¿ywanie jest nie
-zalecane w przeno¶nym kodzie, a najlepiej w ogóle.
+Te zbiory istniej± dla zapewnienia zgodno¶ci z pomniejszymi zbiorami
+Microsoftu z .NET Framework SDK. Ich u¿ywanie jest nie zalecane w
+przeno¶nym kodzie, a najlepiej nie u¿ywaæ ich w ogóle.
 
 %prep
 %setup -q -a 1
