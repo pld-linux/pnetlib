@@ -149,6 +149,7 @@ Group:		Libraries
 Requires:	%{name}-base = %{version}
 Requires:	%{name}-compat = %{version}
 Requires:	%{name}-xsharp = %{version}
+Requires:	%{name}-ziplib = %{version}
 
 %description winforms
 Winforms is a GUI library for Portable .NET applications. It depends
