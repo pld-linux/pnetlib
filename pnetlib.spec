@@ -1,18 +1,16 @@
-%define		pnet_version	0.6.2
+%define		pnet_version	0.6.4
 %define		pnet_reskit_version	0.6.0
 
 Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
-Version:	0.6.2
-Release:	1
+Version:	0.6.4
+Release:	0.1
 License:	GPL plus linking exception
 Vendor:		DotGNU
 Group:		Libraries
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-# Source0-md5:	f565b5475532d1e90f262ba85d2128f9
-Source1:	http://www.southern-storm.com.au/download/pnet-reskit-%{pnet_reskit_version}.tar.gz
-# Source1-md5:	729789b3c95d3c7981caea7d0f9234b6
+# Source0-md5:	484a0f53b713e5458ba1864eab51e496
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
@@ -22,7 +20,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	pnet-compiler-csharp = %{pnet_version}
 BuildRequires:	pnet-interpreter = %{pnet_version}
 BuildRequires:	pnet-tools = %{pnet_version}
-BuildRequires:	treecc >= 0.2.4
+BuildRequires:	treecc >= 0.3.0
 Requires:	csunit = %{version}
 Requires:	pnet-interpreter = %{pnet_version}
 Requires:	pnet-jscript = %{version}
@@ -298,24 +296,15 @@ przeno¶nym kodzie, a najlepiej nie u¿ywaæ ich w ogóle.
 %configure
 %{__make}
 
-cd pnet-reskit-%{pnet_reskit_version}
-%{__aclocal}
-%{__automake}
-%{__autoconf}
-%configure \
-	--enable-xft
-%{__make}
-cd ..
-
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__make} install \
-	-C pnet-reskit-%{pnet_reskit_version} \
-	DESTDIR=$RPM_BUILD_ROOT
+#%{__make} install \
+#	-C pnet-reskit-%{pnet_reskit_version} \
+#	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
