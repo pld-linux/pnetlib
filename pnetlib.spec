@@ -1,14 +1,14 @@
-%define		pnet_version	0.6.10
+%define		pnet_version	0.6.12
 Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
-Version:	0.6.10
-Release:	3
+Version:	0.6.12
+Release:	1
 License:	GPL plus linking exception
 Vendor:		DotGNU
 Group:		Libraries
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-# Source0-md5:	126ee95edda10a5865bd215bf831ccec
+# Source0-md5:	e2c4f185b1f43aca2093ad39c72e7e41
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
@@ -17,7 +17,7 @@ BuildRequires:	libtool
 BuildRequires:	libstdc++-devel
 BuildRequires:	pnet-compiler-csharp = %{pnet_version}
 BuildRequires:	pnet-tools = %{pnet_version}
-BuildRequires:	treecc >= 0.3.0
+BuildRequires:	treecc >= 0.3.6
 Requires:	csunit = %{version}
 Requires:	pnet-interpreter = %{pnet_version}
 Requires:	pnet-jscript = %{version}
