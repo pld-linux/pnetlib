@@ -101,13 +101,13 @@ wywo³añ bezpo¶rednich "pinvoke" Portable .NET. Kod ¼ród³owy mo¿e byæ
 przydatny dla zainteresowanych korzystaniem z PInvoke.
 
 %package ziplib
-Summary:	ziplib libraries for DotGNU Portable .NET
-Summary(pl):	Biblioteki ziplib dla DotGNU Portable .NET
+Summary:	ziplib library for DotGNU Portable .NET
+Summary(pl):	Biblioteka ziplib dla DotGNU Portable .NET
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 
 %description ziplib
-Libarary to support compressions for Portable .NET .
+Library to support compression for Portable .NET .
 
 %description ziplib -l pl
 Biblioteka do obslugi kompresji dla Portable .NET .
