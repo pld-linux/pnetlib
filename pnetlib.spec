@@ -1,14 +1,17 @@
 %define		pnet_version	0.6.0
+%define		pnet_reskit_version	0.6.0
 
 Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
 Version:	0.6.0.1
-Release:	1
+Release:	2
 License:	GPL plus linking exception
 Vendor:		DotGNU
 Group:		Libraries
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
+Source1:	http://www.southern-storm.com.au/download/pnet-reskit-%{pnet_reskit_version}.tar.gz
+# Source1-md5:	729789b3c95d3c7981caea7d0f9234b6
 # Source0-md5:	7ace204daba6a511af955a8b5b97cb2d
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -281,20 +284,33 @@ zbiorami Microsoftu z .NET Framework SDK. Ich u¿ywanie jest nie
 zalecane w przeno¶nym kodzie, a najlepiej w ogóle.
 
 %prep
-%setup -q
+%setup -q -a 1
 
 %build
 %{__libtoolize}
 %{__aclocal}
 %{__automake} --ignore-deps
 %{__autoconf}
+
 %configure
 %{__make}
+
+cd pnet-reskit-%{pnet_reskit_version}
+%{__aclocal}
+%{__automake}
+%{__autoconf}
+%configure
+%{__make}
+cd ..
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+%{__make} install \
+	-C pnet-reskit-%{pnet_reskit_version} \
 	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
@@ -304,19 +320,24 @@ rm -rf ${RPM_BUILD_ROOT}
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %{_libdir}/cscc/lib/I18N*
+%{_libdir}/cscc/lib/ca/I18N.resources.dll
 %{_libdir}/cscc/lib/OpenSystem.C.dll
 %{_libdir}/cscc/lib/System.Xml.dll
+%{_libdir}/cscc/lib/ca/System.Xml.resources.dll
 %{_libdir}/cscc/lib/System.dll
+%{_libdir}/cscc/lib/ca/System.resources.dll
 %{_libdir}/cscc/lib/System.EnterpriseServices.dll
 %{_libdir}/cscc/lib/ISymWrapper.dll
 %{_libdir}/cscc/lib/de/*.dll
 %{_libdir}/cscc/lib/mscorlib.dll
+%{_libdir}/cscc/lib/ca/mscorlib.resources.dll
 %{_libdir}/cscc/lib/pnetlib.here
 
 %files xsharp
 %defattr(644,root,root,755)
 %{_libdir}/cscc/lib/libXsharpSupport.*
 %{_libdir}/cscc/lib/Xsharp.dll
+%{_libdir}/cscc/lib/ca/Xsharp.resources.dll
 
 %files openssl
 %defattr(644,root,root,755)
@@ -332,16 +353,20 @@ rm -rf ${RPM_BUILD_ROOT}
 %defattr(644,root,root,755)
 %doc System.Windows.Forms/HACKING
 %{_libdir}/cscc/lib/System.Drawing.*
+%{_libdir}/cscc/lib/ca/System.Drawing.*
 %{_libdir}/cscc/lib/System.Windows.*
+%{_libdir}/cscc/lib/ca/System.Windows.*
 %{_libdir}/cscc/lib/DotGNU.Images.*
 
 %files visualbasic
 %defattr(644,root,root,755)
 %{_libdir}/cscc/lib/Microsoft.VisualBasic.dll
+%{_libdir}/cscc/lib/ca/Microsoft.VisualBasic.resources.dll
 
 %files irda
 %defattr(644,root,root,755)
 %{_libdir}/cscc/lib/System.Net.IrDA.dll
+%{_libdir}/cscc/lib/ca/System.Net.IrDA.resources.dll
 
 %files -n pnet-jscript
 %defattr(644,root,root,755)
@@ -353,6 +378,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ilinstall*
 %{_libdir}/cscc/lib/System.Configuration.Install.dll
+%{_libdir}/cscc/lib/ca/System.Configuration.Install.resources.dll
 
 %files -n csunit
 %defattr(644,root,root,755)
