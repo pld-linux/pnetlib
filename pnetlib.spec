@@ -50,11 +50,11 @@ Jest to metapakiet zawieraj±cy wszystko za³±czone w dystrybucji
 pnetlib.
 
 %package base
-Summary:	DotGNU Portable .NET library -- base files
+Summary:	DotGNU Portable .NET library - base files
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU - podstawowe pliki
 Group:		Libraries
 Requires:	%{name}-ssl = %{version}
-Requires:	pnet-interpreter  = %{version}
+Requires:	pnet-interpreter = %{version}
 
 %description base
 This is the standard library of the Portable.Net platform. It is built
@@ -105,10 +105,10 @@ Group:		Libraries
 Requires:	%{name}-base = %{version}
 
 %description ziplib
-Libarary to support compressions for Portable .NET.
+Libarary to support compressions for Portable .NET .
 
 %description ziplib -l pl
-Biblioteka do obslugi kompresji dla Portable .NET
+Biblioteka do obslugi kompresji dla Portable .NET .
 
 %package openssl
 Summary:	OpenSSL support for DotGNU Portable .NET
@@ -174,7 +174,7 @@ Requires:	%{name}-base = %{version}
 
 %description visualbasic
 This is the standard runtime library for Visual Basic programs in
-Portable .NET.
+Portable .NET .
 
 Install this package if you wish to build or run programs written in
 Visual Basic. Package pnet-compiler-visualbasic includes VB support
@@ -182,7 +182,7 @@ for cscc.
 
 %description visualbasic -l pl
 To jest standardowa biblioteka uruchomieniowa dla programów w Visual
-Basicu w ¶rodowisku Portable .NET.
+Basicu w ¶rodowisku Portable .NET .
 
 Ten pakiet nale¿y zainstalowaæ aby tworzyæ lub uruchamiaæ programy
 napisane w Visual Basicu. Obs³uga VB dla cscc znajduje siê w pakiecie
@@ -210,7 +210,7 @@ Requires:	%{name}-base = %{version}
 Requires:	%{name}-compat = %{version}
 
 %description -n pnet-jscript
-This is the JScript implementation for Portable .NET. It is designed
+This is the JScript implementation for Portable .NET . It is designed
 to be compatible with the "Microsoft.JScript" assembly from the .NET
 Framework SDK.
 
@@ -219,7 +219,7 @@ your own applications, and a tool, `jsrun', with which to run scripts
 from the command line.
 
 %description -n pnet-jscript -l pl
-To jest implementacja JScriptu dla Portable .NET. Zosta³a tak
+To jest implementacja JScriptu dla Portable .NET . Zosta³a tak
 zaprojektowana, aby byæ kompatybilna z "Microsoft.JScript" z .NET
 Framework SDK.
 
