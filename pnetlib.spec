@@ -18,6 +18,7 @@ BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	libtool
+BuildRequires:	libstdc++-devel
 BuildRequires:	pnet-compiler-csharp = %{pnet_version}
 BuildRequires:	pnet-interpreter = %{pnet_version}
 BuildRequires:	pnet-tools = %{pnet_version}
