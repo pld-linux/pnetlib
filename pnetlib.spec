@@ -1,14 +1,14 @@
-%define		pnet_version	0.6.4
+%define		pnet_version	0.6.6
 Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
-Version:	0.6.4
-Release:	3
+Version:	0.6.6
+Release:	0.1
 License:	GPL plus linking exception
 Vendor:		DotGNU
 Group:		Libraries
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-# Source0-md5:	484a0f53b713e5458ba1864eab51e496
+# Source0-md5:	b2cb4c5ea3847dbbc985f280443b9a23
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
@@ -337,6 +337,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_libdir}/cscc/lib/*/ca/mscorlib.resources.dll
 #%{_libdir}/cscc/lib/pnetlib.here
 %{_libdir}/cscc/lib/*/DotGNU.Terminal.*
+%{_libdir}/cscc/lib/*/DotGNU.XmlRpc.dll
 %{_datadir}/cscc
 
 %files xsharp
