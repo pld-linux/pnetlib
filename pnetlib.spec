@@ -3,7 +3,7 @@ Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
 Version:	0.6.4
-Release:	1
+Release:	2
 License:	GPL plus linking exception
 Vendor:		DotGNU
 Group:		Libraries
@@ -309,6 +309,9 @@ rm -rf ${RPM_BUILD_ROOT}
 %files base
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
+%dir %{_libdir}/cscc/lib
+%dir %{_libdir}/cscc/lib/de
+%dir %{_libdir}/cscc/lib/ca
 %{_libdir}/cscc/lib/I18N*
 %{_libdir}/cscc/lib/*/I18N*
 %{_libdir}/cscc/lib/*/ca/I18N.resources.dll
