@@ -2,7 +2,7 @@ Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
 Version:	0.5.12
-Release:	0.1
+Release:	0.2
 License:	GPL plus linking exception
 Vendor:		DotGNU
 Group:		Libraries
@@ -19,6 +19,7 @@ BuildRequires:	pnet-tools = %{version}
 Requires:	csunit = %{version}
 Requires:	pnet-interpreter = %{version}
 Requires:	pnet-jscript = %{version}
+Requires:	pnet-ilinstall = %{version}
 Requires:	pnetlib-base = %{version}
 Requires:	pnetlib-compat = %{version}
 Requires:	pnetlib-irda = %{version}
@@ -180,6 +181,18 @@ We include a JScript library, instructions on how to embed it into
 your own applications, and a tool, `jsrun', with which to run scripts
 from the command line.
 
+%package -n pnet-ilinstall
+Summary:	IL Assembly Installer
+Summary(pl):	Instalator Assemblera IL
+Group:		Libraries
+Requires:	pnetlib-base = %{version}
+
+%description -n pnet-ilinstall
+IL Assembly Installer
+
+%description -n pnet-ilinstall -l pl
+Instalator Assemblera IL
+
 %package -n csunit
 Summary:	Simple unit testing suit for DotGNU Portable .NET
 Summary(pl):	Prosty zestaw testowych modu³ów dla DotGNU Portable .NET
@@ -251,6 +264,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %doc System.Windows.Forms/HACKING
 %{_libdir}/cscc/lib/System.Drawing.*
 %{_libdir}/cscc/lib/System.Windows.*
+%{_libdir}/cscc/lib/DotGNU.Images.*
 
 %files visualbasic
 %defattr(644,root,root,755)
@@ -265,6 +279,11 @@ rm -rf ${RPM_BUILD_ROOT}
 %doc JScript/README doc/JScript-embed.txt doc/JScript-internals.txt
 %attr(755,root,root) %{_bindir}/jsrun*
 %{_libdir}/cscc/lib/Microsoft.JScript.dll
+
+%files -n pnet-ilinstall
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/ilinstall*
+%{_libdir}/cscc/lib/System.Configuration.Install.dll
 
 %files -n csunit
 %defattr(644,root,root,755)
