@@ -10,9 +10,9 @@ License:	GPL plus linking exception
 Vendor:		DotGNU
 Group:		Libraries
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
+# Source0-md5:	7ace204daba6a511af955a8b5b97cb2d
 Source1:	http://www.southern-storm.com.au/download/pnet-reskit-%{pnet_reskit_version}.tar.gz
 # Source1-md5:	729789b3c95d3c7981caea7d0f9234b6
-# Source0-md5:	7ace204daba6a511af955a8b5b97cb2d
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
