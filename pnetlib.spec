@@ -1,11 +1,9 @@
 %define		pnet_version	0.6.4
-%define		pnet_reskit_version	0.6.0
-
 Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
 Version:	0.6.4
-Release:	0.1
+Release:	1
 License:	GPL plus linking exception
 Vendor:		DotGNU
 Group:		Libraries
@@ -285,7 +283,7 @@ Microsoftu z .NET Framework SDK. Ich u¿ywanie jest nie zalecane w
 przeno¶nym kodzie, a najlepiej nie u¿ywaæ ich w ogóle.
 
 %prep
-%setup -q -a 1
+%setup -q
 
 %build
 %{__libtoolize}
@@ -302,9 +300,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-#%{__make} install \
-#	-C pnet-reskit-%{pnet_reskit_version} \
-#	DESTDIR=$RPM_BUILD_ROOT
+cd $RPM_BUILD_ROOT%{_libdir}/cscc/lib/
+ln -sf */OpenSystem.Platform.dll .
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
@@ -315,8 +312,8 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_libdir}/cscc/lib/I18N*
 %{_libdir}/cscc/lib/*/I18N*
 %{_libdir}/cscc/lib/*/ca/I18N.resources.dll
-%{_libdir}/cscc/lib/OpenSystem.C.dll
-%{_libdir}/cscc/lib/*/OpenSystem.C.dll
+%{_libdir}/cscc/lib/OpenSystem.*.dll
+%{_libdir}/cscc/lib/*/OpenSystem.*.dll
 %{_libdir}/cscc/lib/System.Xml.dll
 %{_libdir}/cscc/lib/*/System.Xml.dll
 %{_libdir}/cscc/lib/*/System.Xml.resources.dll
@@ -371,6 +368,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_libdir}/cscc/lib/*/ca/System.Windows.*
 %{_libdir}/cscc/lib/*/DotGNU.Images.*
 %{_libdir}/cscc/lib/*/System.Design.*
+%{_libdir}/cscc/lib/*/pinvoke.map
 
 %files visualbasic
 %defattr(644,root,root,755)
