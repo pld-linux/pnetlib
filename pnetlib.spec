@@ -22,6 +22,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	pnet-compiler-csharp = %{pnet_version}
 BuildRequires:	pnet-interpreter = %{pnet_version}
 BuildRequires:	pnet-tools = %{pnet_version}
+BuildRequires:	treecc >= 0.2.4
 Requires:	csunit = %{version}
 Requires:	pnet-interpreter = %{pnet_version}
 Requires:	pnet-jscript = %{version}
