@@ -9,6 +9,8 @@ Group:		Libraries
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	bison
+BuildRequires:	flex
 BuildRequires:	pnet-interpreter
 BuildRequires:	pnet-compiler >= 0.5.6
 BuildRequires:	pnet-tools
