@@ -3,7 +3,7 @@ Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
 Version:	0.6.10
-Release:	2
+Release:	3
 License:	GPL plus linking exception
 Vendor:		DotGNU
 Group:		Libraries
@@ -300,7 +300,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 cd $RPM_BUILD_ROOT%{_libdir}/cscc/lib/
-ln -sf */OpenSystem.Platform.dll .
+ln -sf */OpenSystem.Platform.dll */System.Design.dll .
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
@@ -365,6 +365,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_libdir}/cscc/lib/System.Drawing.*
 %{_libdir}/cscc/lib/System.Windows.*
 %{_libdir}/cscc/lib/DotGNU.Images.*
+%{_libdir}/cscc/lib/System.Design.dll
 %{_libdir}/cscc/lib/*/System.Drawing.*
 %{_libdir}/cscc/lib/*/ca/System.Drawing.*
 %{_libdir}/cscc/lib/*/System.Windows.*
