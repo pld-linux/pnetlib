@@ -348,7 +348,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_libdir}/cscc/lib/*/ca/mscorlib.resources.dll
 #%{_libdir}/cscc/lib/pnetlib.here
 %{_libdir}/cscc/lib/*/DotGNU.Terminal.*
-%{_datadir}/%{name}
+%{_datadir}/cscc
 
 %files xsharp
 %defattr(644,root,root,755)
