@@ -3,7 +3,7 @@ Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
 Version:	0.6.6
-Release:	0.1
+Release:	2
 License:	GPL plus linking exception
 Vendor:		DotGNU
 Group:		Libraries
