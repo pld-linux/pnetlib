@@ -7,6 +7,7 @@ License:	GPL
 Vendor:		DotGNU
 Group:		Libraries
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
+# Source0-md5:	50e194ba71c75c6dfae05914c0608ee2
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
