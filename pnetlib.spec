@@ -1,13 +1,13 @@
 Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
-Version:	0.5.12
+Version:	0.6.0
 Release:	1
 License:	GPL plus linking exception
 Vendor:		DotGNU
 Group:		Libraries
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-# Source0-md5:	2caf804fef106236dc196f236bc1af77
+# Source0-md5:	7848ce58a81e875906315230461e885f
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
@@ -97,6 +97,18 @@ korzystaj±cych bezpo¶rednio z biblotek X11.
 Biblioteka zosta³a napisana jako test torturuj±cy dla mechanizmu
 wywo³añ bezpo¶rednich "pinvoke" Portable .NET. Kod ¼ród³owy mo¿e byæ
 przydatny dla zainteresowanych korzystaniem z PInvoke.
+
+%package ziplib
+Summary:	ziplib libraries for DotGNU Portable .NET
+Summary(pl):	Biblioteki ziplib dla DotGNU Portable .NET
+Group:		Libraries
+Requires:	%{name}-base = %{version}
+
+%description ziplib
+Libarary to support compressions for Portable .NET.
+
+%description ziplib -l pl
+Biblioteka do obslugi kompresji dla Portable .NET
 
 %package openssl
 Summary:	OpenSSL support for DotGNU Portable .NET
@@ -293,6 +305,8 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_libdir}/cscc/lib/OpenSystem.C.dll
 %{_libdir}/cscc/lib/System.Xml.dll
 %{_libdir}/cscc/lib/System.dll
+%{_libdir}/cscc/lib/System.EnterpriseServices.dll
+%{_libdir}/cscc/lib/ISymWrapper.dll
 %{_libdir}/cscc/lib/de/*.dll
 %{_libdir}/cscc/lib/mscorlib.dll
 %{_libdir}/cscc/lib/pnetlib.here
@@ -306,6 +320,11 @@ rm -rf ${RPM_BUILD_ROOT}
 %defattr(644,root,root,755)
 %doc DotGNU.SSL/README
 %{_libdir}/cscc/lib/DotGNU.SSL.dll
+
+%files ziplib
+%defattr(644,root,root,755)
+%doc SharpZipLib/README
+%{_libdir}/cscc/lib/ICSharpCode.SharpZipLib.dll
 
 %files winforms
 %defattr(644,root,root,755)
