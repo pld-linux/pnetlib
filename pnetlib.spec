@@ -13,8 +13,8 @@ BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
 BuildRequires:	libtool
-BuildRequires:	pnet-interpreter = %{version}
 BuildRequires:	pnet-compiler-csharp = %{version}
+BuildRequires:	pnet-interpreter = %{version}
 BuildRequires:	pnet-tools = %{version}
 Requires:	csunit = %{version}
 Requires:	pnet-interpreter = %{version}
@@ -23,10 +23,10 @@ Requires:	pnetlib-base = %{version}
 Requires:	pnetlib-compat = %{version}
 Requires:	pnetlib-irda = %{version}
 Requires:	pnetlib-openssl = %{version}
+Provides:	pnetlib-tools
 Requires:	pnetlib-visualbasic = %{version}
 Requires:	pnetlib-winforms = %{version}
 Requires:	pnetlib-xsharp = %{version}
-Provides:	pnetlib-tools
 # configure scripts don't work with BA: noarch
 # BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
