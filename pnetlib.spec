@@ -75,8 +75,7 @@ tylko standardowe biblioteki jest to wszystko czego potrzebujesz.
 
 %package xsharp
 Summary:	XFree86 bindings for DotGNU Portable .NET
-Group:		System/Libraries
-######		Unknown group!
+Group:		Libraries
 Requires:	pnetlib-base = %{version}
 
 %description xsharp
@@ -100,8 +99,7 @@ je¿eli jeste¶ zainteresowany korzystaniem z PInvoke.
 %package openssl
 Summary:	OpenSSL support for DotGNU Portable .NET
 Summary(pl):	Obs³uga OpenSSL dla DotGNU Portable .NET
-Group:		System/Libraries
-######		Unknown group!
+Group:		Libraries
 License:	GPL (but see description)
 Provides:	pnetlib-ssl = %{version}
 Requires:	pnetlib-base = %{version}
@@ -126,8 +124,7 @@ TLS.
 %package winforms
 Summary:	Windows.Forms for DotGNU Portable .NET
 Summary(pl):	Windows.Forms dla DotGNU Portable .NET
-Group:		System/Libraries
-######		Unknown group!
+Group:		Libraries
 Requires:	pnetlib-base = %{version}
 Requires:	pnetlib-compat = %{version}
 Requires:	pnetlib-xsharp = %{version}
@@ -146,8 +143,7 @@ Portable .NET and Winforms.
 %package visualbasic
 Summary:	Visual Basic support library for DotGNU Portable .NET
 Summary(pl):	Obs³uga Visual Basic dla DotGNU Portable .NET
-Group:		System/Libraries
-######		Unknown group!
+Group:		Libraries
 Requires:	pnetlib-base = %{version}
 
 %description visualbasic
@@ -161,8 +157,7 @@ for cscc.
 %package irda
 Summary:	IrDA support for DotGNU Portable .NET
 Summary(pl):	Obs³uga IrDA dla DotGNU Portable .NET
-Group:		System/Libraries
-######		Unknown group!
+Group:		Libraries
 Requires:	pnetlib-base = %{version}
 
 %description irda
@@ -172,8 +167,7 @@ This library adds support for infrared devices to the DotGNU Portable
 %package -n pnet-jscript
 Summary:	JScript runtime for DotGNU Portable .NET
 Summary(pl):	Biblioteki uruchomieniowe JScript dla DotGNU Portable .NET
-Group:		System/Libraries
-######		Unknown group!
+Group:		Libraries
 Requires:	pnetlib-base = %{version}
 Requires:	pnetlib-compat = %{version}
 
@@ -189,8 +183,7 @@ from the command line.
 %package -n csunit
 Summary:	Simple unit testing suit for DotGNU Portable .NET
 Summary(pl):	Prosty zestaw testowych modu³ów dla DotGNU Portable .NET
-Group:		Development/Other
-######		Unknown group!
+Group:		Development
 Requires:	pnetlib-base = %{version}
 
 %description -n csunit
@@ -204,8 +197,7 @@ as DLLs, and a library containing csunit's functionality.
 %package compat
 Summary:	Deprecated .NET compatibility libraries for Portable .NET
 Summary(pl):	Przestarza³e biblioteki .NET zachowane dla zgodno¶ci
-Group:		System/Libraries
-######		Unknown group!
+Group:		Libraries
 Requires:	pnetlib-base = %{version}
 
 %description compat
