@@ -1,7 +1,7 @@
 Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
-Version:	0.5.4
+Version:	0.5.6
 Release:	1
 License:	GPL
 Vendor:		DotGNU
@@ -10,7 +10,7 @@ Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	pnet-interpreter
-BuildRequires:	pnet-compiler >= 0.5.4
+BuildRequires:	pnet-compiler >= 0.5.6
 BuildRequires:	pnet-tools
 Requires:	pnet-interpreter
 BuildArch:	noarch
@@ -21,7 +21,7 @@ The pnetlib is DotGNU's implementation of the CLI (".NET") standard
 Base Class Library. It is designed to be used with programs targeted
 at the CLI and locally executed in the pnet-interpreter.
 
-%description -l
+%description -l pl
 pnetlib jest implementacj±, w ramach projektu DotGNU, Standardowej
 Biblioteki Klass CLI (".NET"). Jest zaprojektowana w celu u¿ycia w
 programach napisanych dla CLI i uruchamianych lokalnie przez
