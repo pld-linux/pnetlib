@@ -66,7 +66,7 @@ rm -rf ${RPM_BUILD_ROOT}
 
 %files
 %defattr(644,root,root,755)
-%{_libdir}/cscc/lib
+%{_libdir}/cscc/lib/*
 
 %files tools
 %defattr(644,root,root,755)
