@@ -1,22 +1,24 @@
 Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
-Version:	0.5.6
+Version:	0.5.8
 Release:	1
 License:	GPL
 Vendor:		DotGNU
 Group:		Libraries
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-# Source0-md5:	50e194ba71c75c6dfae05914c0608ee2
+# Source0-md5:	bd67c9334a1c24278713a45d9b1d42bc
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
 BuildRequires:	flex
+BuildRequires:	libtool
 BuildRequires:	pnet-interpreter
-BuildRequires:	pnet-compiler >= 0.5.6
+BuildRequires:	pnet-compiler >= 0.5.8
 BuildRequires:	pnet-tools
 Requires:	pnet-interpreter
-BuildArch:	noarch
+# configure scripts don't work with BA: noarch
+# BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,6 +48,7 @@ Ró¿ne narzêdzia bilioteki Portable .NET z projektu DotGNU.
 %setup -q
 
 %build
+%{__libtoolize}
 %{__aclocal}
 %{__automake} --ignore-deps
 %{__autoconf}
