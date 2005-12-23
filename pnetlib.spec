@@ -3,7 +3,7 @@ Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
 Version:	0.7.2
-Release:	1
+Release:	2
 License:	GPL plus linking exception
 Vendor:		DotGNU
 Group:		Libraries
@@ -285,6 +285,10 @@ przeno¶nym kodzie, a najlepiej nie u¿ywaæ ich w ogóle.
 %setup -q
 
 %build
+if [ -x /usr/bin/pnet-resgen ]; then
+RESGEN=/usr/bin/pnet-resgen
+export RESGEN
+fi
 %{__libtoolize}
 %{__aclocal}
 %{__automake} --ignore-deps
