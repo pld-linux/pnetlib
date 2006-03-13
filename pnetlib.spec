@@ -1,14 +1,14 @@
-%define		pnet_version	0.7.2
+%define		pnet_version	0.7.4
 Summary:	The DotGNU Portable .NET library
 Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
-Version:	0.7.2
-Release:	2
+Version:	0.7.4
+Release:	1
 License:	GPL plus linking exception
 Vendor:		DotGNU
 Group:		Libraries
 Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-# Source0-md5:	9a7125a222314a1a9ba666426b557386
+# Source0-md5:	cab8de4301bea6e4777ca95cc8a860bd
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
