@@ -1,6 +1,6 @@
 %define		pnet_version	0.7.4
 Summary:	The DotGNU Portable .NET library
-Summary(pl):	Biblioteka Portable .NET z projektu DotGNU
+Summary(pl.UTF-8):   Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
 Version:	0.7.4
 Release:	1
@@ -42,18 +42,18 @@ at the CLI and locally executed in the pnet-interpreter.
 This is a metapackage that requires everything included with the
 pnetlib distribution.
 
-%description -l pl
-pnetlib jest implementacj±, w ramach projektu DotGNU, Standardowej
-Biblioteki Klass CLI (".NET"). Jest zaprojektowana w celu u¿ycia w
+%description -l pl.UTF-8
+pnetlib jest implementacjÄ…, w ramach projektu DotGNU, Standardowej
+Biblioteki Klass CLI (".NET"). Jest zaprojektowana w celu uÅ¼ycia w
 programach napisanych dla CLI i uruchamianych lokalnie przez
 pnet-interpreter.
 
-Jest to metapakiet zawieraj±cy wszystko co znajduje siê w dystrybucji
+Jest to metapakiet zawierajÄ…cy wszystko co znajduje siÄ™ w dystrybucji
 pnetlib.
 
 %package base
 Summary:	DotGNU Portable .NET library - base files
-Summary(pl):	Biblioteka Portable .NET z projektu DotGNU - podstawowe pliki
+Summary(pl.UTF-8):   Biblioteka Portable .NET z projektu DotGNU - podstawowe pliki
 Group:		Libraries
 Requires:	%{name}-ssl = %{version}
 Requires:	pnet-interpreter = %{pnet_version}
@@ -66,20 +66,20 @@ These are the base files for pnetlib -- you need these if you need
 anything else from pnetlib. For apps that only use the standard
 library, this is all you need.
 
-%description base -l pl
-pnetlib jest implementacj±, w ramach projektu DotGNU, Standardowej
-Biblioteki Klass CLI (".NET"). Jest zaprojektowana w celu u¿ycia w
+%description base -l pl.UTF-8
+pnetlib jest implementacjÄ…, w ramach projektu DotGNU, Standardowej
+Biblioteki Klass CLI (".NET"). Jest zaprojektowana w celu uÅ¼ycia w
 programach napisanych dla CLI i uruchamianych lokalnie przez
 pnet-interpreter.
 
-W tym pakiecie znajduj± siê podstawowe pliki dla pnetlib. S± one
-potrzebne, ¿eby robiæ cokolwiek z pnetlib. Dla programów
-wykorzystuj±cych tylko standardowe biblioteki jest to wszystko czego
+W tym pakiecie znajdujÄ… siÄ™ podstawowe pliki dla pnetlib. SÄ… one
+potrzebne, Å¼eby robiÄ‡ cokolwiek z pnetlib. Dla programÃ³w
+wykorzystujÄ…cych tylko standardowe biblioteki jest to wszystko czego
 potrzeba.
 
 %package xsharp
 Summary:	XFree86 bindings for DotGNU Portable .NET
-Summary(pl):	Wi±zania XFree86 dla DotGNU Portable .NET
+Summary(pl.UTF-8):   WiÄ…zania XFree86 dla DotGNU Portable .NET
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 
@@ -92,30 +92,30 @@ This was also written as a torture test for Portable .NET's "pinvoke"
 native code calling mechanism. The source code may be useful if you
 are interested in using PInvoke.
 
-%description xsharp -l pl
-Nak³adki na ró¿ne biblioteki X11: X11, Xext i imlib. S± potrzebne do
-tworzenia aplikacji lub uruchamiania programów Portable .NET
-korzystaj±cych bezpo¶rednio z biblotek X11.
+%description xsharp -l pl.UTF-8
+NakÅ‚adki na rÃ³Å¼ne biblioteki X11: X11, Xext i imlib. SÄ… potrzebne do
+tworzenia aplikacji lub uruchamiania programÃ³w Portable .NET
+korzystajÄ…cych bezpoÅ›rednio z biblotek X11.
 
-Biblioteka zosta³a napisana jako test torturuj±cy dla mechanizmu
-wywo³añ bezpo¶rednich "pinvoke" Portable .NET. Kod ¼ród³owy mo¿e byæ
+Biblioteka zostaÅ‚a napisana jako test torturujÄ…cy dla mechanizmu
+wywoÅ‚aÅ„ bezpoÅ›rednich "pinvoke" Portable .NET. Kod ÅºrÃ³dÅ‚owy moÅ¼e byÄ‡
 przydatny dla zainteresowanych korzystaniem z PInvoke.
 
 %package ziplib
 Summary:	ziplib library for DotGNU Portable .NET
-Summary(pl):	Biblioteka ziplib dla DotGNU Portable .NET
+Summary(pl.UTF-8):   Biblioteka ziplib dla DotGNU Portable .NET
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 
 %description ziplib
 Library to support compression for Portable .NET .
 
-%description ziplib -l pl
-Biblioteka do obs³ugi kompresji dla Portable .NET .
+%description ziplib -l pl.UTF-8
+Biblioteka do obsÅ‚ugi kompresji dla Portable .NET .
 
 %package openssl
 Summary:	OpenSSL support for DotGNU Portable .NET
-Summary(pl):	Obs³uga OpenSSL dla DotGNU Portable .NET
+Summary(pl.UTF-8):   ObsÅ‚uga OpenSSL dla DotGNU Portable .NET
 Group:		Libraries
 License:	GPL (but see description)
 Requires:	%{name}-base = %{version}
@@ -129,17 +129,17 @@ It's recommended not use it in GPL software, as OpenSSL is not
 licensed under a GPL-compatible license. Instead, add support for
 another SSL engine to pnetlib, preferably the nascent GNU TLS.
 
-%description openssl -l pl
-Ten pakiet zawiera wersjê silnika SSL wymaganego przez pnetlib
-wymagaj±c± biblioteki OpenSSL.
+%description openssl -l pl.UTF-8
+Ten pakiet zawiera wersjÄ™ silnika SSL wymaganego przez pnetlib
+wymagajÄ…cÄ… biblioteki OpenSSL.
 
-Zaleca siê nie korzystaæ z tego w oprogramowaniu GPL, poniewa¿ OpenSSL
-nie ma licencji zgodnej z GPL. Zamiast tego zaleca siê dodaæ obs³ugê
+Zaleca siÄ™ nie korzystaÄ‡ z tego w oprogramowaniu GPL, poniewaÅ¼ OpenSSL
+nie ma licencji zgodnej z GPL. Zamiast tego zaleca siÄ™ dodaÄ‡ obsÅ‚ugÄ™
 innego silnika SSL do pnetlib. Preferowany jest GNU TLS.
 
 %package winforms
 Summary:	Windows.Forms for DotGNU Portable .NET
-Summary(pl):	Windows.Forms dla DotGNU Portable .NET
+Summary(pl.UTF-8):   Windows.Forms dla DotGNU Portable .NET
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 Requires:	%{name}-compat = %{version}
@@ -157,21 +157,21 @@ in package pnetlib-xsharp.
 Install this package if you wish to build or run applications based on
 Portable .NET and Winforms.
 
-%description winforms -l pl
-Winforms to biblioteka GUI (graficznego interfejsu u¿ytkownika) dla
-aplikacji Portable .NET. Wymaga System.Drawing, które z kolei wymaga
+%description winforms -l pl.UTF-8
+Winforms to biblioteka GUI (graficznego interfejsu uÅ¼ytkownika) dla
+aplikacji Portable .NET. Wymaga System.Drawing, ktÃ³re z kolei wymaga
 XSharp.
 
 Ten pakiet zawiera System.Windows.Forms, System.Drawing oraz
-System.Drawing.Xsharp, czyli backend ³±cz±cy z XSharp. XSharp znajduje
-siê w pakiecie pnetlib-xsharp.
+System.Drawing.Xsharp, czyli backend Å‚Ä…czÄ…cy z XSharp. XSharp znajduje
+siÄ™ w pakiecie pnetlib-xsharp.
 
-Ten pakiet nale¿y zainstalowaæ aby tworzyæ lub uruchamiaæ aplikacje
+Ten pakiet naleÅ¼y zainstalowaÄ‡ aby tworzyÄ‡ lub uruchamiaÄ‡ aplikacje
 oparte na Portable .NET oraz Winforms.
 
 %package visualbasic
 Summary:	Visual Basic support library for DotGNU Portable .NET
-Summary(pl):	Obs³uga Visual Basic dla DotGNU Portable .NET
+Summary(pl.UTF-8):   ObsÅ‚uga Visual Basic dla DotGNU Portable .NET
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 
@@ -183,17 +183,17 @@ Install this package if you wish to build or run programs written in
 Visual Basic. Package pnet-compiler-visualbasic includes VB support
 for cscc.
 
-%description visualbasic -l pl
-To jest standardowa biblioteka uruchomieniowa dla programów w Visual
-Basicu w ¶rodowisku Portable .NET .
+%description visualbasic -l pl.UTF-8
+To jest standardowa biblioteka uruchomieniowa dla programÃ³w w Visual
+Basicu w Å›rodowisku Portable .NET .
 
-Ten pakiet nale¿y zainstalowaæ aby tworzyæ lub uruchamiaæ programy
-napisane w Visual Basicu. Obs³uga VB dla cscc znajduje siê w pakiecie
+Ten pakiet naleÅ¼y zainstalowaÄ‡ aby tworzyÄ‡ lub uruchamiaÄ‡ programy
+napisane w Visual Basicu. ObsÅ‚uga VB dla cscc znajduje siÄ™ w pakiecie
 pnet-compiler-visualbasic.
 
 %package irda
 Summary:	IrDA support for DotGNU Portable .NET
-Summary(pl):	Obs³uga IrDA dla DotGNU Portable .NET
+Summary(pl.UTF-8):   ObsÅ‚uga IrDA dla DotGNU Portable .NET
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 
@@ -201,13 +201,13 @@ Requires:	%{name}-base = %{version}
 This library adds support for infrared devices to the DotGNU Portable
 .NET library.
 
-%description irda -l pl
-Ten pakiet dodaje do biblioteki DotGNU Portable .NET obs³ugê urz±dzeñ
-komunikuj±cych siê przez podczerwieñ.
+%description irda -l pl.UTF-8
+Ten pakiet dodaje do biblioteki DotGNU Portable .NET obsÅ‚ugÄ™ urzÄ…dzeÅ„
+komunikujÄ…cych siÄ™ przez podczerwieÅ„.
 
 %package -n pnet-jscript
 Summary:	JScript runtime for DotGNU Portable .NET
-Summary(pl):	Biblioteki uruchomieniowe JScript dla DotGNU Portable .NET
+Summary(pl.UTF-8):   Biblioteki uruchomieniowe JScript dla DotGNU Portable .NET
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 Requires:	%{name}-compat = %{version}
@@ -221,30 +221,30 @@ We include a JScript library, instructions on how to embed it into
 your own applications, and a tool, `jsrun', with which to run scripts
 from the command line.
 
-%description -n pnet-jscript -l pl
-To jest implementacja JScriptu dla Portable .NET . Zosta³a tak
-zaprojektowana, aby by³a zgodna z "Microsoft.JScript" z .NET Framework
+%description -n pnet-jscript -l pl.UTF-8
+To jest implementacja JScriptu dla Portable .NET . ZostaÅ‚a tak
+zaprojektowana, aby byÅ‚a zgodna z "Microsoft.JScript" z .NET Framework
 SDK.
 
-Pakiet zawiera bibliotekê JScript, opis jak osadzaæ j± we w³asnych
-aplikacjach oraz narzêdzie jsrun, przy pomocy którego mo¿na uruchamiaæ
-skrypty z linii poleceñ.
+Pakiet zawiera bibliotekÄ™ JScript, opis jak osadzaÄ‡ jÄ… we wÅ‚asnych
+aplikacjach oraz narzÄ™dzie jsrun, przy pomocy ktÃ³rego moÅ¼na uruchamiaÄ‡
+skrypty z linii poleceÅ„.
 
 %package -n pnet-ilinstall
 Summary:	IL Assembly Installer
-Summary(pl):	Instalator zbiorów IL
+Summary(pl.UTF-8):   Instalator zbiorÃ³w IL
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 
 %description -n pnet-ilinstall
 IL Assembly Installer.
 
-%description -n pnet-ilinstall -l pl
-Instalator zbiorów IL.
+%description -n pnet-ilinstall -l pl.UTF-8
+Instalator zbiorÃ³w IL.
 
 %package -n csunit
 Summary:	Simple unit testing suit for DotGNU Portable .NET
-Summary(pl):	Prosty zestaw do testowania modu³ów dla DotGNU Portable .NET
+Summary(pl.UTF-8):   Prosty zestaw do testowania moduÅ‚Ã³w dla DotGNU Portable .NET
 Group:		Development
 Requires:	%{name}-base = %{version}
 
@@ -256,18 +256,18 @@ your own.
 Included are a command-line tool to run tests, which should be built
 as DLLs, and a library containing csunit's functionality.
 
-%description -n csunit -l pl
-Program s³u¿±cy do testowania modu³ów oparty na JUnit. Nale¿y go
-zainstalowaæ aby uruchamiaæ zbiory testów dostarczane z programami
-Portable .NET lub pisaæ w³asne testy.
+%description -n csunit -l pl.UTF-8
+Program sÅ‚uÅ¼Ä…cy do testowania moduÅ‚Ã³w oparty na JUnit. NaleÅ¼y go
+zainstalowaÄ‡ aby uruchamiaÄ‡ zbiory testÃ³w dostarczane z programami
+Portable .NET lub pisaÄ‡ wÅ‚asne testy.
 
-Pakiet zawiera narzêdzie do uruchamiania testów z linii poleceñ, które
-powinny byæ budowane jako DLL-e oraz bibliotekê zawieraj±c±
-funkcjonalno¶æ csunit.
+Pakiet zawiera narzÄ™dzie do uruchamiania testÃ³w z linii poleceÅ„, ktÃ³re
+powinny byÄ‡ budowane jako DLL-e oraz bibliotekÄ™ zawierajÄ…cÄ…
+funkcjonalnoÅ›Ä‡ csunit.
 
 %package compat
 Summary:	Deprecated .NET compatibility libraries for Portable .NET
-Summary(pl):	Nie zalecane biblioteki .NET zachowane dla zgodno¶ci
+Summary(pl.UTF-8):   Nie zalecane biblioteki .NET zachowane dla zgodnoÅ›ci
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 
@@ -276,10 +276,10 @@ These assemblies exist to provide compatibility with minor Microsoft
 assemblies within the .NET Framework SDK. We do not recommend using
 these assemblies in portable code, or in fact at all.
 
-%description compat -l pl
-Te zbiory istniej± dla zapewnienia zgodno¶ci z pomniejszymi zbiorami
-Microsoftu z .NET Framework SDK. Ich u¿ywanie jest nie zalecane w
-przeno¶nym kodzie, a najlepiej nie u¿ywaæ ich w ogóle.
+%description compat -l pl.UTF-8
+Te zbiory istniejÄ… dla zapewnienia zgodnoÅ›ci z pomniejszymi zbiorami
+Microsoftu z .NET Framework SDK. Ich uÅ¼ywanie jest nie zalecane w
+przenoÅ›nym kodzie, a najlepiej nie uÅ¼ywaÄ‡ ich w ogÃ³le.
 
 %prep
 %setup -q
