@@ -1,6 +1,6 @@
 %define		pnet_version	0.7.4
 Summary:	The DotGNU Portable .NET library
-Summary(pl.UTF-8):   Biblioteka Portable .NET z projektu DotGNU
+Summary(pl.UTF-8):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
 Version:	0.7.4
 Release:	1
@@ -53,7 +53,7 @@ pnetlib.
 
 %package base
 Summary:	DotGNU Portable .NET library - base files
-Summary(pl.UTF-8):   Biblioteka Portable .NET z projektu DotGNU - podstawowe pliki
+Summary(pl.UTF-8):	Biblioteka Portable .NET z projektu DotGNU - podstawowe pliki
 Group:		Libraries
 Requires:	%{name}-ssl = %{version}
 Requires:	pnet-interpreter = %{pnet_version}
@@ -79,7 +79,7 @@ potrzeba.
 
 %package xsharp
 Summary:	XFree86 bindings for DotGNU Portable .NET
-Summary(pl.UTF-8):   Wiązania XFree86 dla DotGNU Portable .NET
+Summary(pl.UTF-8):	Wiązania XFree86 dla DotGNU Portable .NET
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 
@@ -103,7 +103,7 @@ przydatny dla zainteresowanych korzystaniem z PInvoke.
 
 %package ziplib
 Summary:	ziplib library for DotGNU Portable .NET
-Summary(pl.UTF-8):   Biblioteka ziplib dla DotGNU Portable .NET
+Summary(pl.UTF-8):	Biblioteka ziplib dla DotGNU Portable .NET
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 
@@ -115,7 +115,7 @@ Biblioteka do obsługi kompresji dla Portable .NET .
 
 %package openssl
 Summary:	OpenSSL support for DotGNU Portable .NET
-Summary(pl.UTF-8):   Obsługa OpenSSL dla DotGNU Portable .NET
+Summary(pl.UTF-8):	Obsługa OpenSSL dla DotGNU Portable .NET
 Group:		Libraries
 License:	GPL (but see description)
 Requires:	%{name}-base = %{version}
@@ -139,7 +139,7 @@ innego silnika SSL do pnetlib. Preferowany jest GNU TLS.
 
 %package winforms
 Summary:	Windows.Forms for DotGNU Portable .NET
-Summary(pl.UTF-8):   Windows.Forms dla DotGNU Portable .NET
+Summary(pl.UTF-8):	Windows.Forms dla DotGNU Portable .NET
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 Requires:	%{name}-compat = %{version}
@@ -171,7 +171,7 @@ oparte na Portable .NET oraz Winforms.
 
 %package visualbasic
 Summary:	Visual Basic support library for DotGNU Portable .NET
-Summary(pl.UTF-8):   Obsługa Visual Basic dla DotGNU Portable .NET
+Summary(pl.UTF-8):	Obsługa Visual Basic dla DotGNU Portable .NET
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 
@@ -193,7 +193,7 @@ pnet-compiler-visualbasic.
 
 %package irda
 Summary:	IrDA support for DotGNU Portable .NET
-Summary(pl.UTF-8):   Obsługa IrDA dla DotGNU Portable .NET
+Summary(pl.UTF-8):	Obsługa IrDA dla DotGNU Portable .NET
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 
@@ -207,7 +207,7 @@ komunikujących się przez podczerwień.
 
 %package -n pnet-jscript
 Summary:	JScript runtime for DotGNU Portable .NET
-Summary(pl.UTF-8):   Biblioteki uruchomieniowe JScript dla DotGNU Portable .NET
+Summary(pl.UTF-8):	Biblioteki uruchomieniowe JScript dla DotGNU Portable .NET
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 Requires:	%{name}-compat = %{version}
@@ -232,7 +232,7 @@ skrypty z linii poleceń.
 
 %package -n pnet-ilinstall
 Summary:	IL Assembly Installer
-Summary(pl.UTF-8):   Instalator zbiorów IL
+Summary(pl.UTF-8):	Instalator zbiorów IL
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 
@@ -244,7 +244,7 @@ Instalator zbiorów IL.
 
 %package -n csunit
 Summary:	Simple unit testing suit for DotGNU Portable .NET
-Summary(pl.UTF-8):   Prosty zestaw do testowania modułów dla DotGNU Portable .NET
+Summary(pl.UTF-8):	Prosty zestaw do testowania modułów dla DotGNU Portable .NET
 Group:		Development
 Requires:	%{name}-base = %{version}
 
@@ -267,7 +267,7 @@ funkcjonalność csunit.
 
 %package compat
 Summary:	Deprecated .NET compatibility libraries for Portable .NET
-Summary(pl.UTF-8):   Nie zalecane biblioteki .NET zachowane dla zgodności
+Summary(pl.UTF-8):	Nie zalecane biblioteki .NET zachowane dla zgodności
 Group:		Libraries
 Requires:	%{name}-base = %{version}
 
