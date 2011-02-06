@@ -307,7 +307,7 @@ cd $RPM_BUILD_ROOT%{_libdir}/cscc/lib/
 ln -sf */OpenSystem.Platform.dll */System.Design.dll .
 
 %clean
-rm -rf ${RPM_BUILD_ROOT}
+rm -rf $RPM_BUILD_ROOT
 
 %files base
 %defattr(644,root,root,755)
