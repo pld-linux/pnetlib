@@ -1,14 +1,15 @@
-%define		pnet_version	0.7.4
+%define		pnet_version	0.8.0
 Summary:	The DotGNU Portable .NET library
 Summary(pl.UTF-8):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
-Version:	0.7.4
-Release:	2
+Version:	0.8.0
+Release:	1
 License:	GPL plus linking exception
 Vendor:		DotGNU
 Group:		Libraries
-Source0:	http://www.southern-storm.com.au/download/%{name}-%{version}.tar.gz
-# Source0-md5:	cab8de4301bea6e4777ca95cc8a860bd
+Source0:	http://download.savannah.gnu.org/releases/dotgnu-pnet/%{name}-%{version}.tar.gz
+# Source0-md5:	38bbe31798f5324c8d68c7d510446a8d
+URL:		http://www.gnu.org/software/dotgnu/pnet.html
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	bison
@@ -332,6 +333,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/cscc/lib/*/System.Xml.resources.dll
 %{_libdir}/cscc/lib/*/ca/System.Xml.resources.dll
 %{_libdir}/cscc/lib/System.dll
+%{_libdir}/cscc/lib/System.Deployment.dll 
 %{_libdir}/cscc/lib/*/System.dll
 %{_libdir}/cscc/lib/*/System.resources.dll
 %{_libdir}/cscc/lib/*/ca/System.resources.dll
@@ -346,6 +348,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/cscc/lib/*/mscorlib.resources.dll
 %{_libdir}/cscc/lib/*/ca/mscorlib.resources.dll
 #%{_libdir}/cscc/lib/pnetlib.here
+%{_libdir}/cscc/lib/DotGNU.Terminal.*
+%{_libdir}/cscc/lib/DotGNU.XmlRpc.dll
+%{_libdir}/cscc/lib/DotGNU.Misc.dll
 %{_libdir}/cscc/lib/*/DotGNU.Terminal.*
 %{_libdir}/cscc/lib/*/DotGNU.XmlRpc.dll
 %{_libdir}/cscc/lib/*/DotGNU.Misc.dll
@@ -405,6 +410,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc JScript/README doc/JScript-embed.txt doc/JScript-internals.txt
 %attr(755,root,root) %{_bindir}/jsrun*
+%attr(755,root,root) %{_libdir}/cscc/lib/jsrun*
 %attr(755,root,root) %{_libdir}/cscc/lib/*/jsrun*
 %{_libdir}/cscc/lib/Microsoft.JScript.dll
 %{_libdir}/cscc/lib/*/Microsoft.JScript.dll
@@ -412,6 +418,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n pnet-ilinstall
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/ilinstall*
+%attr(755,root,root) %{_libdir}/cscc/lib/ilinstall*
 %attr(755,root,root) %{_libdir}/cscc/lib/*/ilinstall*
 %{_libdir}/cscc/lib/System.Configuration.Install.dll
 %{_libdir}/cscc/lib/*/System.Configuration.Install.resources.dll
@@ -422,6 +429,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc doc/csunit_howto.html
 %attr(755,root,root) %{_bindir}/csunit*
+%attr(755,root,root) %{_libdir}/cscc/lib/csunit*
 %attr(755,root,root) %{_libdir}/cscc/lib/*/csunit*
 %{_libdir}/cscc/lib/cstest.dll
 %{_libdir}/cscc/lib/*/cstest.dll
@@ -436,4 +444,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/cscc/lib/*/Microsoft.Vsa.dll
 %{_libdir}/cscc/lib/*/Accessibility.dll
 %{_libdir}/cscc/lib/*/cscompmgd.dll
+%{_libdir}/cscc/lib/sysglobl.dll
 %{_libdir}/cscc/lib/*/sysglobl.dll
