@@ -1,38 +1,47 @@
+# TODO: configure creates soname mapping file (pinvoke.map) for libraries found at configure time;
+#   either create static mapping or BR these libraries for autodetection + require sonames at
+#   install time.
+# The libraries are:
+# - basic ones:  ICE X11 Xext ssl gnutls jpeg
+# - GNOME 2:  art_lgpl atk-1.0 gconf-2 gda-2 gdk-x11-2.0 gdk_pixbuf-2.0 glade-2.0 glib-2.0 gnome-2 gnomecanvas-2 gnomeprint-2-2 gnomeprintui-2-2 gnomeui-2 gnomevfs-2 gobject-2.0 gthread-2.0 gtk-html-3.0 gtk-x11-2.0 panel-applet-2 pango-1.0 vte
+# - GTK# 1 glue:  gdksharpglue gladesharpglue glibsharpglue gnomesharpglue gtksharpglue pangosharpglue
+# - GTK# 2 glue:  gladesharpglue-2 glibsharpglue-2 gnomesharpglue-2
+
 %define		pnet_version	0.8.0
 Summary:	The DotGNU Portable .NET library
 Summary(pl.UTF-8):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
 Version:	0.8.0
 Release:	1
-License:	GPL plus linking exception
-Vendor:		DotGNU
+License:	GPL v2+ with linking exception (see README)
 Group:		Libraries
 Source0:	http://download.savannah.gnu.org/releases/dotgnu-pnet/%{name}-%{version}.tar.gz
 # Source0-md5:	38bbe31798f5324c8d68c7d510446a8d
+Patch0:		%{name}-destdir.patch
 URL:		http://www.gnu.org/software/dotgnu/pnet.html
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	bison
-BuildRequires:	flex
-BuildRequires:	libtool
+BuildRequires:	autoconf >= 2.13
+BuildRequires:	automake >= 1.4
 BuildRequires:	libstdc++-devel
+BuildRequires:	libtool
+BuildRequires:	pkgconfig
+# required tools: csant [pnet-]resgen pnet/al ilgac clrwrap cscc ilrun ilfind
 BuildRequires:	pnet-compiler-csharp = %{pnet_version}
 BuildRequires:	pnet-tools = %{pnet_version}
 BuildRequires:	treecc >= 0.3.6
-Requires:	csunit = %{version}
+BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-lib-libXft-devel
+Requires:	csunit = %{version}-%{release}
 Requires:	pnet-interpreter = %{pnet_version}
-Requires:	pnet-jscript = %{version}
-Requires:	pnet-ilinstall = %{version}
-Requires:	pnetlib-base = %{version}
-Requires:	pnetlib-compat = %{version}
-Requires:	pnetlib-irda = %{version}
-Requires:	pnetlib-openssl = %{version}
-Requires:	pnetlib-visualbasic = %{version}
-Requires:	pnetlib-winforms = %{version}
-Requires:	pnetlib-xsharp = %{version}
+Requires:	pnet-jscript = %{version}-%{release}
+Requires:	pnet-ilinstall = %{version}-%{release}
+Requires:	pnetlib-base = %{version}-%{release}
+Requires:	pnetlib-compat = %{version}-%{release}
+Requires:	pnetlib-irda = %{version}-%{release}
+Requires:	pnetlib-openssl = %{version}-%{release}
+Requires:	pnetlib-visualbasic = %{version}-%{release}
+Requires:	pnetlib-winforms = %{version}-%{release}
+Requires:	pnetlib-xsharp = %{version}-%{release}
 Provides:	pnetlib-tools
-# configure scripts don't work with BA: noarch
-# BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -56,7 +65,7 @@ pnetlib.
 Summary:	DotGNU Portable .NET library - base files
 Summary(pl.UTF-8):	Biblioteka Portable .NET z projektu DotGNU - podstawowe pliki
 Group:		Libraries
-Requires:	%{name}-ssl = %{version}
+Requires:	%{name}-ssl = %{version}-%{release}
 Requires:	pnet-interpreter = %{pnet_version}
 
 %description base
@@ -82,7 +91,7 @@ potrzeba.
 Summary:	XFree86 bindings for DotGNU Portable .NET
 Summary(pl.UTF-8):	Wiązania XFree86 dla DotGNU Portable .NET
 Group:		Libraries
-Requires:	%{name}-base = %{version}
+Requires:	%{name}-base = %{version}-%{release}
 
 %description xsharp
 Bindings to various X11 libraries: X11, Xext, and imlib. Install if
@@ -106,7 +115,7 @@ przydatny dla zainteresowanych korzystaniem z PInvoke.
 Summary:	ziplib library for DotGNU Portable .NET
 Summary(pl.UTF-8):	Biblioteka ziplib dla DotGNU Portable .NET
 Group:		Libraries
-Requires:	%{name}-base = %{version}
+Requires:	%{name}-base = %{version}-%{release}
 
 %description ziplib
 Library to support compression for Portable .NET .
@@ -118,9 +127,9 @@ Biblioteka do obsługi kompresji dla Portable .NET .
 Summary:	OpenSSL support for DotGNU Portable .NET
 Summary(pl.UTF-8):	Obsługa OpenSSL dla DotGNU Portable .NET
 Group:		Libraries
-License:	GPL (but see description)
-Requires:	%{name}-base = %{version}
-Provides:	%{name}-ssl = %{version}
+License:	GPL v2+ with linking exception (not strict GPL compatible, see description)
+Requires:	%{name}-base = %{version}-%{release}
+Provides:	%{name}-ssl = %{version}-%{release}
 
 %description openssl
 This is a version of the SSL support engine required by pnetlib that
@@ -142,10 +151,10 @@ innego silnika SSL do pnetlib. Preferowany jest GNU TLS.
 Summary:	Windows.Forms for DotGNU Portable .NET
 Summary(pl.UTF-8):	Windows.Forms dla DotGNU Portable .NET
 Group:		Libraries
-Requires:	%{name}-base = %{version}
-Requires:	%{name}-compat = %{version}
-Requires:	%{name}-xsharp = %{version}
-Requires:	%{name}-ziplib = %{version}
+Requires:	%{name}-base = %{version}-%{release}
+Requires:	%{name}-compat = %{version}-%{release}
+Requires:	%{name}-xsharp = %{version}-%{release}
+Requires:	%{name}-ziplib = %{version}-%{release}
 
 %description winforms
 Winforms is a GUI library for Portable .NET applications. It depends
@@ -174,7 +183,7 @@ oparte na Portable .NET oraz Winforms.
 Summary:	Visual Basic support library for DotGNU Portable .NET
 Summary(pl.UTF-8):	Obsługa Visual Basic dla DotGNU Portable .NET
 Group:		Libraries
-Requires:	%{name}-base = %{version}
+Requires:	%{name}-base = %{version}-%{release}
 
 %description visualbasic
 This is the standard runtime library for Visual Basic programs in
@@ -196,7 +205,7 @@ pnet-compiler-visualbasic.
 Summary:	IrDA support for DotGNU Portable .NET
 Summary(pl.UTF-8):	Obsługa IrDA dla DotGNU Portable .NET
 Group:		Libraries
-Requires:	%{name}-base = %{version}
+Requires:	%{name}-base = %{version}-%{release}
 
 %description irda
 This library adds support for infrared devices to the DotGNU Portable
@@ -210,8 +219,8 @@ komunikujących się przez podczerwień.
 Summary:	JScript runtime for DotGNU Portable .NET
 Summary(pl.UTF-8):	Biblioteki uruchomieniowe JScript dla DotGNU Portable .NET
 Group:		Libraries
-Requires:	%{name}-base = %{version}
-Requires:	%{name}-compat = %{version}
+Requires:	%{name}-base = %{version}-%{release}
+Requires:	%{name}-compat = %{version}-%{release}
 
 %description -n pnet-jscript
 This is the JScript implementation for Portable .NET . It is designed
@@ -235,7 +244,7 @@ skrypty z linii poleceń.
 Summary:	IL Assembly Installer
 Summary(pl.UTF-8):	Instalator zbiorów IL
 Group:		Libraries
-Requires:	%{name}-base = %{version}
+Requires:	%{name}-base = %{version}-%{release}
 
 %description -n pnet-ilinstall
 IL Assembly Installer.
@@ -247,7 +256,7 @@ Instalator zbiorów IL.
 Summary:	Simple unit testing suit for DotGNU Portable .NET
 Summary(pl.UTF-8):	Prosty zestaw do testowania modułów dla DotGNU Portable .NET
 Group:		Development
-Requires:	%{name}-base = %{version}
+Requires:	%{name}-base = %{version}-%{release}
 
 %description -n csunit
 A unit testing driver program based on JUnit. Install this if you wish
@@ -270,7 +279,7 @@ funkcjonalność csunit.
 Summary:	Deprecated .NET compatibility libraries for Portable .NET
 Summary(pl.UTF-8):	Nie zalecane biblioteki .NET zachowane dla zgodności
 Group:		Libraries
-Requires:	%{name}-base = %{version}
+Requires:	%{name}-base = %{version}-%{release}
 
 %description compat
 These assemblies exist to provide compatibility with minor Microsoft
@@ -284,18 +293,17 @@ przenośnym kodzie, a najlepiej nie używać ich w ogóle.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-if [ -x /usr/bin/pnet-resgen ]; then
-RESGEN=/usr/bin/pnet-resgen
-export RESGEN
-fi
 %{__libtoolize}
 %{__aclocal}
-%{__automake} --ignore-deps
 %{__autoconf}
-
-%configure
+%{__automake} --ignore-deps
+%configure \
+	RESGEN=/usr/bin/pnet-resgen \
+	XFT_CONFIG="/usr/bin/pkg-config xft" \
+	--disable-static
 %{__make}
 
 %install
@@ -304,8 +312,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-cd $RPM_BUILD_ROOT%{_libdir}/cscc/lib/
-ln -sf */OpenSystem.Platform.dll */System.Design.dll .
+# dlopened modules
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/cscc/lib/*.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -314,135 +322,172 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %dir %{_libdir}/cscc/lib
-%dir %{_libdir}/cscc/lib/de
-%dir %{_libdir}/cscc/lib/ca
+%lang(ca) %dir %{_libdir}/cscc/lib/ca
+%lang(de) %dir %{_libdir}/cscc/lib/de
 %dir %{_libdir}/cscc/lib/0.81.0.1407
 %dir %{_libdir}/cscc/lib/2.0.0.0
-%dir %{_libdir}/cscc/lib/2.0.0.0/ca
-%dir %{_libdir}/cscc/lib/2.0.0.0/de
+%lang(ca) %dir %{_libdir}/cscc/lib/2.0.0.0/ca
+%lang(de) %dir %{_libdir}/cscc/lib/2.0.0.0/de
 %dir %{_libdir}/cscc/lib/8.0.50727.42
-%dir %{_libdir}/cscc/lib/8.0.50727.42/ca
-%dir %{_libdir}/cscc/lib/8.0.50727.42/de
-%{_libdir}/cscc/lib/I18N*
-%{_libdir}/cscc/lib/*/I18N*
-%{_libdir}/cscc/lib/*/ca/I18N.resources.dll
-%{_libdir}/cscc/lib/OpenSystem.*.dll
-%{_libdir}/cscc/lib/*/OpenSystem.*.dll
-%{_libdir}/cscc/lib/System.Xml.dll
-%{_libdir}/cscc/lib/*/System.Xml.dll
-%{_libdir}/cscc/lib/*/System.Xml.resources.dll
-%{_libdir}/cscc/lib/*/ca/System.Xml.resources.dll
-%{_libdir}/cscc/lib/System.dll
-%{_libdir}/cscc/lib/System.Deployment.dll 
-%{_libdir}/cscc/lib/*/System.dll
-%{_libdir}/cscc/lib/*/System.resources.dll
-%{_libdir}/cscc/lib/*/ca/System.resources.dll
-%{_libdir}/cscc/lib/System.EnterpriseServices.dll
-%{_libdir}/cscc/lib/*/System.EnterpriseServices.dll
-%{_libdir}/cscc/lib/ISymWrapper.dll
-%{_libdir}/cscc/lib/*/ISymWrapper.dll
-#%{_libdir}/cscc/lib/de/*.dll
-%{_libdir}/cscc/lib/*/de/*.dll
-%{_libdir}/cscc/lib/mscorlib.dll
-%{_libdir}/cscc/lib/*/mscorlib.dll
-%{_libdir}/cscc/lib/*/mscorlib.resources.dll
-%{_libdir}/cscc/lib/*/ca/mscorlib.resources.dll
-#%{_libdir}/cscc/lib/pnetlib.here
-%{_libdir}/cscc/lib/DotGNU.Terminal.*
-%{_libdir}/cscc/lib/DotGNU.XmlRpc.dll
+%lang(ca) %dir %{_libdir}/cscc/lib/8.0.50727.42/ca
+%lang(de) %dir %{_libdir}/cscc/lib/8.0.50727.42/de
+%{_libdir}/cscc/lib/2.0.0.0/DotGNU.Misc.dll
+%{_libdir}/cscc/lib/2.0.0.0/DotGNU.Terminal.dll
+%{_libdir}/cscc/lib/2.0.0.0/DotGNU.XmlRpc.dll
+%{_libdir}/cscc/lib/2.0.0.0/I18N.dll
+%{_libdir}/cscc/lib/2.0.0.0/I18N.*.dll
+%{_libdir}/cscc/lib/2.0.0.0/ISymWrapper.dll
+%{_libdir}/cscc/lib/2.0.0.0/OpenSystem.C.dll
+%{_libdir}/cscc/lib/2.0.0.0/OpenSystem.Platform.dll
+%{_libdir}/cscc/lib/2.0.0.0/System.dll
+%{_libdir}/cscc/lib/2.0.0.0/System.EnterpriseServices.dll
+%{_libdir}/cscc/lib/2.0.0.0/System.Xml.dll
+%{_libdir}/cscc/lib/2.0.0.0/mscorlib.dll
+%{_libdir}/cscc/lib/2.0.0.0/pinvoke.map
+%lang(ca) %{_libdir}/cscc/lib/2.0.0.0/ca/I18N.resources.dll
+%lang(ca) %{_libdir}/cscc/lib/2.0.0.0/ca/System.resources.dll
+%lang(ca) %{_libdir}/cscc/lib/2.0.0.0/ca/System.Xml.resources.dll
+%lang(ca) %{_libdir}/cscc/lib/2.0.0.0/ca/mscorlib.resources.dll
+%lang(de) %{_libdir}/cscc/lib/2.0.0.0/de/I18N.resources.dll
+%lang(de) %{_libdir}/cscc/lib/2.0.0.0/de/System.resources.dll
+%lang(de) %{_libdir}/cscc/lib/2.0.0.0/de/System.Xml.resources.dll
+%lang(de) %{_libdir}/cscc/lib/2.0.0.0/de/mscorlib.resources.dll
+# symlinks
 %{_libdir}/cscc/lib/DotGNU.Misc.dll
-%{_libdir}/cscc/lib/*/DotGNU.Terminal.*
-%{_libdir}/cscc/lib/*/DotGNU.XmlRpc.dll
-%{_libdir}/cscc/lib/*/DotGNU.Misc.dll
+%{_libdir}/cscc/lib/DotGNU.Terminal.dll
+%{_libdir}/cscc/lib/DotGNU.XmlRpc.dll
+%{_libdir}/cscc/lib/I18N.dll
+%{_libdir}/cscc/lib/I18N.*.dll
+%{_libdir}/cscc/lib/ISymWrapper.dll
+%{_libdir}/cscc/lib/OpenSystem.C.dll
+%{_libdir}/cscc/lib/OpenSystem.Platform.dll
+%{_libdir}/cscc/lib/System.Xml.dll
+%{_libdir}/cscc/lib/System.dll
+%{_libdir}/cscc/lib/System.EnterpriseServices.dll
+%{_libdir}/cscc/lib/mscorlib.dll
+%{_libdir}/cscc/lib/pinvoke.map
+%lang(ca) %{_libdir}/cscc/lib/ca/I18N.resources.dll
+%lang(ca) %{_libdir}/cscc/lib/ca/System.resources.dll
+%lang(ca) %{_libdir}/cscc/lib/ca/System.Xml.resources.dll
+%lang(ca) %{_libdir}/cscc/lib/ca/mscorlib.resources.dll
+%lang(de) %{_libdir}/cscc/lib/de/I18N.resources.dll
+%lang(de) %{_libdir}/cscc/lib/de/System.resources.dll
+%lang(de) %{_libdir}/cscc/lib/de/System.Xml.resources.dll
+%lang(de) %{_libdir}/cscc/lib/de/mscorlib.resources.dll
 %{_datadir}/cscc
 
 %files xsharp
 %defattr(644,root,root,755)
-%{_libdir}/cscc/lib/libXsharpSupport.*
+%attr(755,root,root) %{_libdir}/cscc/lib/libXsharpSupport.so*
+%{_libdir}/cscc/lib/2.0.0.0/Xsharp.dll
+%lang(ca) %{_libdir}/cscc/lib/2.0.0.0/ca/Xsharp.resources.dll
+%lang(de) %{_libdir}/cscc/lib/2.0.0.0/de/Xsharp.resources.dll
+# symlinks
 %{_libdir}/cscc/lib/Xsharp.dll
-%{_libdir}/cscc/lib/*/Xsharp.resources.dll
-%{_libdir}/cscc/lib/*/Xsharp.dll
-%{_libdir}/cscc/lib/*/ca/Xsharp.resources.dll
+%lang(ca) %{_libdir}/cscc/lib/ca/Xsharp.resources.dll
+%lang(de) %{_libdir}/cscc/lib/de/Xsharp.resources.dll
 
 %files openssl
 %defattr(644,root,root,755)
 %doc DotGNU.SSL/README
+%{_libdir}/cscc/lib/2.0.0.0/DotGNU.SSL.dll
+# symlink
 %{_libdir}/cscc/lib/DotGNU.SSL.dll
-%{_libdir}/cscc/lib/*/DotGNU.SSL.dll
 
 %files ziplib
 %defattr(644,root,root,755)
 %doc SharpZipLib/README
+%{_libdir}/cscc/lib/0.81.0.1407/ICSharpCode.SharpZipLib.dll
+# symlink
 %{_libdir}/cscc/lib/ICSharpCode.SharpZipLib.dll
-%{_libdir}/cscc/lib/*/ICSharpCode.SharpZipLib.dll
 
 %files winforms
 %defattr(644,root,root,755)
 %doc System.Windows.Forms/HACKING
-%{_libdir}/cscc/lib/System.Drawing.*
-%{_libdir}/cscc/lib/System.Windows.*
-%{_libdir}/cscc/lib/DotGNU.Images.*
+%{_libdir}/cscc/lib/2.0.0.0/DotGNU.Images.dll
+%{_libdir}/cscc/lib/2.0.0.0/System.Deployment.dll
+%{_libdir}/cscc/lib/2.0.0.0/System.Design.dll
+%{_libdir}/cscc/lib/2.0.0.0/System.Drawing.dll
+%{_libdir}/cscc/lib/2.0.0.0/System.Drawing.*.dll
+%{_libdir}/cscc/lib/2.0.0.0/System.Windows.Forms.dll
+%{_libdir}/cscc/lib/2.0.0.0/System.Windows.Forms.Themes.XP.dll
+%lang(ca) %{_libdir}/cscc/lib/2.0.0.0/ca/System.Drawing.resources.dll
+%lang(ca) %{_libdir}/cscc/lib/2.0.0.0/ca/System.Windows.Forms.resources.dll
+%lang(de) %{_libdir}/cscc/lib/2.0.0.0/de/System.Drawing.resources.dll
+%lang(de) %{_libdir}/cscc/lib/2.0.0.0/de/System.Windows.Forms.resources.dll
+# symlinks
+%{_libdir}/cscc/lib/DotGNU.Images.dll
+%{_libdir}/cscc/lib/System.Deployment.dll 
 %{_libdir}/cscc/lib/System.Design.dll
-%{_libdir}/cscc/lib/*/System.Drawing.*
-%{_libdir}/cscc/lib/*/ca/System.Drawing.*
-%{_libdir}/cscc/lib/*/System.Windows.*
-%{_libdir}/cscc/lib/*/ca/System.Windows.*
-%{_libdir}/cscc/lib/*/DotGNU.Images.*
-%{_libdir}/cscc/lib/*/System.Design.*
-%{_libdir}/cscc/lib/*/pinvoke.map
-%{_libdir}/cscc/lib/*/System.Deployment.*
+%{_libdir}/cscc/lib/System.Drawing.dll
+%{_libdir}/cscc/lib/System.Drawing.*.dll
+%{_libdir}/cscc/lib/System.Windows.Forms.dll
+%{_libdir}/cscc/lib/System.Windows.Forms.Themes.XP.dll
+%lang(ca) %{_libdir}/cscc/lib/ca/System.Drawing.resources.dll
+%lang(ca) %{_libdir}/cscc/lib/ca/System.Windows.Forms.resources.dll
+%lang(de) %{_libdir}/cscc/lib/de/System.Drawing.resources.dll
+%lang(de) %{_libdir}/cscc/lib/de/System.Windows.Forms.resources.dll
 
 %files visualbasic
 %defattr(644,root,root,755)
+%{_libdir}/cscc/lib/8.0.50727.42/Microsoft.VisualBasic.dll
+%lang(ca) %{_libdir}/cscc/lib/8.0.50727.42/ca/Microsoft.VisualBasic.resources.dll
+%lang(de) %{_libdir}/cscc/lib/8.0.50727.42/de/Microsoft.VisualBasic.resources.dll
+# symlinks
 %{_libdir}/cscc/lib/Microsoft.VisualBasic.dll
-%{_libdir}/cscc/lib/*/Microsoft.VisualBasic.resources.dll
-%{_libdir}/cscc/lib/*/Microsoft.VisualBasic.dll
-%{_libdir}/cscc/lib/*/ca/Microsoft.VisualBasic.resources.dll
+%lang(ca) %{_libdir}/cscc/lib/ca/Microsoft.VisualBasic.resources.dll
+%lang(de) %{_libdir}/cscc/lib/de/Microsoft.VisualBasic.resources.dll
 
 %files irda
 %defattr(644,root,root,755)
+%{_libdir}/cscc/lib/2.0.0.0/System.Net.IrDA.dll
+%lang(ca) %{_libdir}/cscc/lib/2.0.0.0/ca/System.Net.IrDA.resources.dll
+%lang(de) %{_libdir}/cscc/lib/2.0.0.0/de/System.Net.IrDA.resources.dll
+# symlinks
 %{_libdir}/cscc/lib/System.Net.IrDA.dll
-%{_libdir}/cscc/lib/*/System.Net.IrDA.resources.dll
-%{_libdir}/cscc/lib/*/System.Net.IrDA.dll
-%{_libdir}/cscc/lib/*/ca/System.Net.IrDA.resources.dll
+%lang(ca) %{_libdir}/cscc/lib/ca/System.Net.IrDA.resources.dll
+%lang(de) %{_libdir}/cscc/lib/de/System.Net.IrDA.resources.dll
 
 %files -n pnet-jscript
 %defattr(644,root,root,755)
 %doc JScript/README doc/JScript-embed.txt doc/JScript-internals.txt
-%attr(755,root,root) %{_bindir}/jsrun*
-%attr(755,root,root) %{_libdir}/cscc/lib/jsrun*
-%attr(755,root,root) %{_libdir}/cscc/lib/*/jsrun*
+%attr(755,root,root) %{_bindir}/jsrun
+%attr(755,root,root) %{_libdir}/cscc/lib/8.0.50727.42/jsrun.exe
+%attr(755,root,root) %{_libdir}/cscc/lib/jsrun.exe
+%{_libdir}/cscc/lib/8.0.50727.42/Microsoft.JScript.dll
 %{_libdir}/cscc/lib/Microsoft.JScript.dll
-%{_libdir}/cscc/lib/*/Microsoft.JScript.dll
 
 %files -n pnet-ilinstall
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_bindir}/ilinstall*
-%attr(755,root,root) %{_libdir}/cscc/lib/ilinstall*
-%attr(755,root,root) %{_libdir}/cscc/lib/*/ilinstall*
+%attr(755,root,root) %{_bindir}/ilinstall
+%attr(755,root,root) %{_libdir}/cscc/lib/2.0.0.0/ilinstall.exe
+%attr(755,root,root) %{_libdir}/cscc/lib/ilinstall.exe
+%{_libdir}/cscc/lib/2.0.0.0/System.Configuration.Install.dll
+%lang(ca) %{_libdir}/cscc/lib/2.0.0.0/ca/System.Configuration.Install.resources.dll
+%lang(de) %{_libdir}/cscc/lib/2.0.0.0/de/System.Configuration.Install.resources.dll
 %{_libdir}/cscc/lib/System.Configuration.Install.dll
-%{_libdir}/cscc/lib/*/System.Configuration.Install.resources.dll
-%{_libdir}/cscc/lib/*/System.Configuration.Install.dll
-%{_libdir}/cscc/lib/*/ca/System.Configuration.Install.resources.dll
+%lang(ca) %{_libdir}/cscc/lib/ca/System.Configuration.Install.resources.dll
+%lang(de) %{_libdir}/cscc/lib/de/System.Configuration.Install.resources.dll
 
 %files -n csunit
 %defattr(644,root,root,755)
 %doc doc/csunit_howto.html
-%attr(755,root,root) %{_bindir}/csunit*
-%attr(755,root,root) %{_libdir}/cscc/lib/csunit*
-%attr(755,root,root) %{_libdir}/cscc/lib/*/csunit*
+%attr(755,root,root) %{_bindir}/csunit
+%attr(755,root,root) %{_libdir}/cscc/lib/2.0.0.0/csunit.exe
+%attr(755,root,root) %{_libdir}/cscc/lib/csunit.exe
+%{_libdir}/cscc/lib/2.0.0.0/cstest.dll
 %{_libdir}/cscc/lib/cstest.dll
-%{_libdir}/cscc/lib/*/cstest.dll
 
 %files compat
 %defattr(644,root,root,755)
+%{_libdir}/cscc/lib/2.0.0.0/Accessibility.dll
+%{_libdir}/cscc/lib/2.0.0.0/sysglobl.dll
+%{_libdir}/cscc/lib/8.0.50727.42/Microsoft.VisualC.dll
+%{_libdir}/cscc/lib/8.0.50727.42/Microsoft.Vsa.dll
+%{_libdir}/cscc/lib/8.0.50727.42/cscompmgd.dll
+# symlinks
+%{_libdir}/cscc/lib/Accessibility.dll
 %{_libdir}/cscc/lib/Microsoft.VisualC.dll
 %{_libdir}/cscc/lib/Microsoft.Vsa.dll
-%{_libdir}/cscc/lib/Accessibility.dll
 %{_libdir}/cscc/lib/cscompmgd.dll
-%{_libdir}/cscc/lib/*/Microsoft.VisualC.dll
-%{_libdir}/cscc/lib/*/Microsoft.Vsa.dll
-%{_libdir}/cscc/lib/*/Accessibility.dll
-%{_libdir}/cscc/lib/*/cscompmgd.dll
 %{_libdir}/cscc/lib/sysglobl.dll
-%{_libdir}/cscc/lib/*/sysglobl.dll
