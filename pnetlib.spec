@@ -293,7 +293,7 @@ przenośnym kodzie, a najlepiej nie używać ich w ogóle.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__libtoolize}
