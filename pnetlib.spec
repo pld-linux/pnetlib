@@ -12,7 +12,7 @@ Summary:	The DotGNU Portable .NET library
 Summary(pl.UTF-8):	Biblioteka Portable .NET z projektu DotGNU
 Name:		pnetlib
 Version:	0.8.0
-Release:	1
+Release:	2
 License:	GPL v2+ with linking exception (see README)
 Group:		Libraries
 Source0:	http://download.savannah.gnu.org/releases/dotgnu-pnet/%{name}-%{version}.tar.gz
